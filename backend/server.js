@@ -11,8 +11,11 @@ app.use(cors());
 app.use(express.json());
 
 // Routes will be imported here
-// const authRoutes = require('./routes/auth.routes');
-// app.use('/api/auth', authRoutes);
+const authRoutes = require('./routes/auth.routes');
+const journalRoutes = require('./routes/journal.routes');
+
+app.use('/api/auth', authRoutes);
+app.use('/api/journal', journalRoutes);
 
 app.get('/', (req, res) => {
   res.send('NeuroWell API is running...');
